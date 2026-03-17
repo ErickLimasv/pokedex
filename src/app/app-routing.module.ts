@@ -16,7 +16,7 @@ const routes: Routes = [
     }
   },
   {
-    path: "/pokemon/:pokemon",
+    path: "/pokedex/pokemon/:pokemon",
     component: PokemonComponent,
     resolve: {
       pokemonData: PokemonDataResolver,
