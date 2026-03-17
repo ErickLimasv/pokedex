@@ -9,14 +9,14 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 const routes: Routes = [
   {
-    path: "",
+    path: "/",
     component: HomeComponent,
     resolve: {
       pokemonsList: PokemonsListResolver
     }
   },
   {
-    path: "./pokemon/:pokemon",
+    path: "/pokemon/:pokemon",
     component: PokemonComponent,
     resolve: {
       pokemonData: PokemonDataResolver,
@@ -24,7 +24,7 @@ const routes: Routes = [
     }
   },
   {
-    path: "404",
+    path: "/404",
     component: NotFoundComponent
   },
   {
