@@ -1,0 +1,142 @@
+@use "../../../util/mixins";
+@use "../../../util/animations";
+@use "../../../util/variables" as var;
+
+.banner {
+    @include mixins.flex-row-responsive;
+
+    justify-content: space-between;
+    max-width: 1100px;
+    margin: auto;
+    margin-bottom: 100px;
+    padding: 0 30px;
+}
+
+.banner__text {
+    color: var(--cor-text);
+    max-width: 500px;
+    align-self: center;
+    width: 50%;
+
+    & h1 {
+        font-size: 3em;
+        font-weight: 500;
+        margin-bottom: 25px;
+        text-transform: uppercase;
+    }
+
+    & p {
+        font-size: 1.2em;
+    }
+
+    @media screen and (max-width: 800px) {
+        width: auto;
+        text-align: center;
+        margin-top: 80px;
+
+        & h1 {
+            font-size: 2.6em;
+        }
+    }
+}
+
+.banner__img {
+    width: clamp(180px, 100%, 350px);
+    height: 350px;
+    align-self: flex-end;
+
+    @media screen and (max-width: 800px) {
+        align-self: center;
+    }
+}
+
+.explore {
+    @include mixins.flex-column;
+    
+    align-items: center;
+    width: 80%;
+    max-width: 600px;
+    margin: auto;
+    margin-bottom: 80px;
+
+    & h3 {
+        color: var(--cor-text);
+        font-size: 1.6em;
+        font-weight: 500;
+        text-transform: uppercase;
+        margin-bottom: 30px
+    }
+}
+
+.list__cards {
+    @include mixins.flex-row;    
+
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.poke__card {
+    animation: 500ms ease-in fadeIn;
+    transition: 200ms ease;
+
+    &:hover {
+        box-shadow: -15px 35px 12px rgba(0,0,0,.1);
+        transform: translateY(-8%);
+    }
+}
+
+.button__ver__mais {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 60px;
+
+    & button {
+        align-self: center;
+        background-color: var.$primary;
+        color: #fff;
+        font-size: .9em;
+        text-transform: capitalize;
+        padding: 12px 20px;
+        border-radius: 8px;
+        width: clamp(180px, 50%, 220px);
+        box-shadow: -4px 6px 6px rgba(0,0,0,.2);
+        transform: translateY(-5%);
+        transition: 150ms ease;
+
+        &:active {
+            animation: 150ms ease click;
+        }
+
+        &:disabled {
+            cursor: default;
+            opacity: .6;
+            box-shadow: 1px 1px 5px rgba(0,0,0,.1);
+            transform: translateY(0%);
+        }
+    }
+
+    & i-feather {
+        margin-left: 8px;
+        width: 1.1em;
+        align-self: center;
+        stroke-width: 3px;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        transform: translateY(-8%);
+        box-shadow: -15px 35px 12px rgba(0,0,0,.1);
+    }
+    50% {
+        transform: translateY(-8%);
+        box-shadow: -15px 35px 12px rgba(0,0,0,.1);
+    }
+    100% {
+        transform: translateY(0%);
+        box-shadow: -2px 2px 6px rgba(0,0,0,.1);
+    }
+}

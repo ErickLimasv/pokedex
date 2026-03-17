@@ -1,0 +1,34 @@
+<div class="banner">
+    <div class="banner__text">
+        <h1>Pokedex</h1>
+        <p>Veja detalhes e informações dos mais de 1100 Pokemons! Além de poder analisar suas cadeias evolutivas e seus status base.</p>
+    </div>
+
+    <div class="banner__img">
+        <img src="/assets/images/arceus.svg" alt="Arceus">
+    </div>
+</div>
+
+<div class="explore">
+    <h3>Explore</h3>
+    <app-searchbar class="w-100"></app-searchbar>
+</div>
+
+<div class="list__cards">
+    <ng-container *ngFor="let pokemonURL of pokemonsURL">
+        <app-card class="poke__card" [pokemonURL]="pokemonURL | turnObservablePokemon"></app-card>
+    </ng-container>
+</div>
+
+<div class="button__ver__mais">
+    <button (click)="verMais()" type="button" [disabled]="isLoading">
+        <ng-container *ngIf="!isLoading">
+            Ver Mais 
+            <i-feather name="plus"></i-feather>
+        </ng-container>
+        <ng-container *ngIf="isLoading">
+            Carregando 
+            <span class="spinner-grow spinner-grow-sm mx-2" role="status" aria-hidden="true"></span>
+        </ng-container>
+    </button>
+</div>

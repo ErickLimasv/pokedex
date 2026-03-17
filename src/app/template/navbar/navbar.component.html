@@ -1,0 +1,16 @@
+<app-navbar-desktop 
+    [theme]="theme"
+    (changeTheme)="switchTheme()"
+    class="navbar navbar-expand-lg"
+>
+</app-navbar-desktop>
+
+<app-navbar-mobile 
+    [theme]="theme"
+    (changeTheme)="switchTheme()"
+    class="offcanvas offcanvas-end" 
+    tabindex="-1" 
+    id="offcanvasNavbar" 
+    aria-labelledby="offcanvasNavbarLabel"
+>
+</app-navbar-mobile>
